@@ -5,6 +5,7 @@ import co.edu.poli.contexto4.servicios.Pilotoentrenamiento;
 public class Principal {
 
     public static void main(String[] args) {
+        System.out.println("este es un mensaje nuevo");
 
         // Arreglo de la superclase
         Astronauta[] astronautas = new Astronauta[5];

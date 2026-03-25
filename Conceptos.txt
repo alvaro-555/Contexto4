@@ -82,7 +82,6 @@ Ubicación:
 - Clase Astronauta, método final obtenerIMC(). (34-36)
 - Clase Ingeniero, clase declarada como final. (3)
 
--------------------------------------------------------------------------------------------------------------
 
 6. Visibilidades:
 Controlan el acceso a los atributos y métodos.
@@ -98,8 +97,7 @@ Ubicación: Clase Principal, arreglo Astronauta[] astronautas.
 8. Sobreescritura de métodos (Override):
 Permite redefinir un método de la clase padre en una subclase.
 Ubicación: Clase Ingeniero, método calcularimc().
-Clase Piloto
-- método toString() (líneas ____)
+
 
 9. Sobrecarga de métodos (Overload):
 Permite tener varios métodos con el mismo nombre pero diferentes parámetros.
