@@ -1,0 +1,129 @@
+CONCEPTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
+
+1. Método Constructor:
+Se utiliza para inicializar los atributos de una clase al crear un objeto.
+Ubicación: Clase Astronauta (16-24), Diagnostico (13-20), Ingeniero (9-14), Medidor (11-15), Mision (14-23), Piloto (7-11), Planeta (13-19), 
+Registro (13-21), Pilotoentrenamiento (11-20) 
+
+Ejemplo: Astronauta(String nombre, int edad, double pesokg, ...)
+
+2. Métodos de acceso (getters y setters):
+Permiten obtener y modificar los atributos de una clase de forma controlada.
+Ubicación
+Clase Astronauta:
+- getNombre() y setNombre() (38-39)
+- getEdad() y setEdad() (41-42)
+- getPesokg() y setPesokg() (44-45)
+- getFechanacimiento() y setFechanacimiento() (50-51)
+- getFoto() y setFoto() (53-54)
+Clase Diagnostico:
+- getNivelradiacion() y setNivelradiacion() (líneas 21-25)
+- getFecha() y setFecha() (líneas 27-31)
+- getAstronauta() y setAstronauta() (líneas 33-37)
+- getMedidor() y setMedidor() (líneas 39-43)
+Clase Ingeniero
+- getNiveltecnico() y setNiveltecnico() (líneas 21-25)
+Clase Medidor:
+- getTipo() y setTipo() (líneas 16-20)
+- getId() y setId() (líneas 22-26)
+- getResultado() y setResultado() (líneas 28-32)
+Clase Mision:
+- getPlaneta() y setPlaneta() (líneas 28-32)
+- getAstronauta() y setAstronauta() (líneas 34-38)
+- getId() y setId() (líneas 40-44)
+- getCohete() y setCohete() (líneas 46-50)
+- getFechainicio() y setFechainicio() (líneas 52-56)
+- getFechafin() y setFechafin() (líneas 58-62)
+Clase Piloto:
+- getLicencia() y setLicencia() (líneas 13-15)
+Clase Planeta:
+- getTipo() y setTipo() (líneas 28-32)
+- getId() y setId() (líneas 34-38)
+- getTamano() y setTamano() (líneas 40-44)
+- getAtmosfera() y setAtmosfera() (líneas 46-50)
+- getDistancia() y setDistancia() (líneas 52-54)
+Clase Registro:
+- getId() y setId() (líneas 32-35)
+- getFecha() y setFecha() (líneas 37-41)
+- getAstronauta() y setAstronauta() (líneas 43-47)
+- getMision() y setMision() (líneas 49-53)
+- getDiagnostico() y setDiagnostico() (líneas 55-59)
+Clase PilotoEntrenamiento:
+- getEsAptoParaVolar() y setEsAptoParaVolar() (líneas 26-30)
+- getNivel() y setNivel() (líneas 32-34)
+-get salarioBase() y set salarioBase() (lineas 36-40)
+
+
+
+3. Método toString:
+Permite representar el objeto como una cadena de texto.
+Clase Astronauta (57-64)
+Clase Diagnostico (45-52)
+Clase Ingeniero (28-33)
+Clase Medidor (34-40)
+Clase Mision(64-72)
+Clase Piloto (22-27)
+Clase Planeta (22-27)
+Clase Registro (24-30)
+Clase Pilotoentrenamiento (43-49)
+
+4. Modificador static:
+Permite que un atributo o método pertenezca a la clase y no a los objetos.
+
+Ubicación: 
+Clase PilotoEntrenamiento
+atributo salarioBase (9).
+
+
+5. Modificador final:
+Impide modificaciones en atributos, métodos o clases.
+Ubicación:
+- Clase Astronauta, atributo final id. (8)
+- Clase Astronauta, método final obtenerIMC(). (34-36)
+- Clase Ingeniero, clase declarada como final. (3)
+
+-------------------------------------------------------------------------------------------------------------
+
+6. Visibilidades:
+Controlan el acceso a los atributos y métodos.
+Ubicación:
+- private: atributos de las clases (encapsulamiento).
+- public: métodos accesibles desde otras clases.
+- protected: métodos como calcularimc().
+
+7. Multiplicidades:
+Representan relaciones entre objetos, como arreglos o colecciones.
+Ubicación: Clase Principal, arreglo Astronauta[] astronautas.
+
+8. Sobreescritura de métodos (Override):
+Permite redefinir un método de la clase padre en una subclase.
+Ubicación: Clase Ingeniero, método calcularimc().
+Clase Piloto
+- método toString() (líneas ____)
+
+9. Sobrecarga de métodos (Overload):
+Permite tener varios métodos con el mismo nombre pero diferentes parámetros.
+Ubicación: Clase Astronauta, métodos calcularimc().
+
+10. Creación de objetos:
+Instanciación de clases usando el operador new.
+Ubicación: Clase Principal.
+Ejemplo: new Astronauta(...), new Ingeniero(...)
+
+11. Agregación:
+Relación donde una clase contiene objetos de otra.
+Ubicación: Clase Principal, arreglo de Astronauta que contiene subclases.
+- Clase Mision contiene arreglos de Planeta y Astronauta (líneas ____)
+
+12. Herencia:
+Permite que una clase herede atributos y métodos de otra.
+Ubicación:
+- Piloto extiende Astronauta
+- Ingeniero extiende Astronauta
+- PilotoEntrenamiento extiende Piloto
+
+13. Polimorfismo:
+Permite usar una referencia de la superclase para objetos de subclases.
+Ubicación:
+- Clase Principal, arreglo Astronauta[]
+- Métodos mostrarIMC() y crearAstronauta()
