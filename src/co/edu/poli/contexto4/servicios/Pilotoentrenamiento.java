@@ -39,6 +39,7 @@ public class Pilotoentrenamiento extends Piloto {
         Pilotoentrenamiento.salarioBase = salarioBase;
     }
 
+    
     @Override
     public String toString(){
         return super.toString()+

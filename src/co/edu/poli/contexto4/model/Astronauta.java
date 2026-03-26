@@ -27,6 +27,7 @@ public abstract class Astronauta { //clase abstracta.
         return pesokg;
     }
 
+    
     protected double calcularimc(double peso,double altura){
         return peso/(altura*altura);
     }

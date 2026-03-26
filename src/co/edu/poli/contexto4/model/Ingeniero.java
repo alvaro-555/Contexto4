@@ -4,7 +4,6 @@ public final class Ingeniero extends Astronauta { // FINAL no se puede heredar
 
     private String niveltecnico;
 
-    public Ingeniero(){}
 
     public Ingeniero(String nombre,int edad,double pesokg,String id,
                      String fechanacimiento,String foto,String niveltecnico){

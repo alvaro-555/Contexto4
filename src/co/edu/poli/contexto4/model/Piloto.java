@@ -6,6 +6,7 @@ public class Piloto extends Astronauta {
 
     public Piloto(String nombre,int edad,double pesokg,String id, String fechanacimiento,String foto,String licencia){
 
+        
         super(nombre,edad,pesokg,id,fechanacimiento,foto);
         this.licencia = licencia;
     }

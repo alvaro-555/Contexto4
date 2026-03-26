@@ -8,7 +8,7 @@ public class Diagnostico {
     private Astronauta astronauta;
     private Medidor medidor;
 
-    public Diagnostico(){}
+  
 
     public Diagnostico(String id, int nivelRadiacion, String fechaDiagnostico,
                        Astronauta astronauta, Medidor medidor){

@@ -12,7 +12,7 @@ public class Principal {
 
         ImplementacionOperacionCRUD crud = new ImplementacionOperacionCRUD();
 
-        // Arreglo original (pruebas)
+       
         Astronauta[] astronautas = new Astronauta[5];
 
         astronautas[1] = new Ingeniero("carlos", 32, 78, "I123", "20/02/1994", "foto", "alto");

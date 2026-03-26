@@ -43,6 +43,7 @@ public class Medidor {
         this.ubicacion = ubicacion;
     }
 
+    
     public String getTamanio(){ return tamanio; }
 
     public void setTamanio(String tamanio){

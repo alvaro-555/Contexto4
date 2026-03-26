@@ -55,6 +55,7 @@ public void setFechainicio(int fechainicio){
     this.fechainicio = fechainicio;
 }
 
+
 public int getFechafin(){ return fechafin; }
 
 public void setFechafin(int fechafin){
