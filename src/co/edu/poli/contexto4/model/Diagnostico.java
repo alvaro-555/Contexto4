@@ -1,53 +1,63 @@
 package co.edu.poli.contexto4.model;
 
-
 public class Diagnostico {
 
-    private int nivelradiacion;
-    private String fecha;
+    private String id;
+    private int nivelRadiacion;
+    private String fechaDiagnostico;
     private Astronauta astronauta;
     private Medidor medidor;
 
     public Diagnostico(){}
 
-    public Diagnostico(int nivelradiacion,String fecha,
-                       Astronauta astronauta,Medidor medidor){
+    public Diagnostico(String id, int nivelRadiacion, String fechaDiagnostico,
+                       Astronauta astronauta, Medidor medidor){
 
-        this.nivelradiacion = nivelradiacion;
-        this.fecha = fecha;
+        this.id = id;
+        this.nivelRadiacion = nivelRadiacion;
+        this.fechaDiagnostico = fechaDiagnostico;
         this.astronauta = astronauta;
         this.medidor = medidor;
     }
-    public int getNivelradiacion(){ return nivelradiacion; }
 
-public void setNivelradiacion(int nivelradiacion){
-    this.nivelradiacion = nivelradiacion;
-}
+    public String getId(){ return id; }
 
-public String getFecha(){ return fecha; }
+    public void setId(String id){
+        this.id = id;
+    }
 
-public void setFecha(String fecha){
-    this.fecha = fecha;
-}
+    public int getNivelRadiacion(){ return nivelRadiacion; }
 
-public Astronauta getAstronauta(){ return astronauta; }
+    public void setNivelRadiacion(int nivelRadiacion){
+        this.nivelRadiacion = nivelRadiacion;
+    }
 
-public void setAstronauta(Astronauta astronauta){
-    this.astronauta = astronauta;
-}
+    public String getFechaDiagnostico(){ return fechaDiagnostico; }
 
-public Medidor getMedidor(){ return medidor; }
+    public void setFechaDiagnostico(String fechaDiagnostico){
+        this.fechaDiagnostico = fechaDiagnostico;
+    }
 
-public void setMedidor(Medidor medidor){
-    this.medidor = medidor;
-}
-@Override
-public String toString(){
-    return "Diagnostico{" +
-            "nivelradiacion=" + nivelradiacion +
-            ", fecha='" + fecha + '\'' +
-            ", astronauta=" + astronauta +
-            ", medidor=" + medidor +
-            '}';
-}
+    public Astronauta getAstronauta(){ return astronauta; }
+
+    public void setAstronauta(Astronauta astronauta){
+        this.astronauta = astronauta;
+    }
+
+    public Medidor getMedidor(){ return medidor; }
+
+    public void setMedidor(Medidor medidor){
+        this.medidor = medidor;
+    }
+
+    @Override
+    public String toString(){
+        return "Diagnostico{" +
+                "id='" + id + '\'' +
+                ", nivelRadiacion=" + nivelRadiacion +
+                ", fechaDiagnostico='" + fechaDiagnostico + '\'' +
+                ", astronauta=" + astronauta +
+                ", medidor=" + medidor +
+                '}';
+    }
 }

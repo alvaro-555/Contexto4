@@ -31,4 +31,8 @@ public final class Ingeniero extends Astronauta { // FINAL no se puede heredar
                 "niveltecnico='" + niveltecnico + '\'' +
                 '}';
     }
+    @Override  //aplicacion del metodo abstracto 
+    public String realizartrabajo() {
+        return "el ingeniero, esta realizando un mantenimiento";
+    }
 }

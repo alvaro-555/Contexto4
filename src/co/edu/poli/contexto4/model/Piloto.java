@@ -25,4 +25,8 @@ public class Piloto extends Astronauta {
                 "licencia='" + licencia + '\'' +
                 '}';
     }
+    @Override
+    public String realizartrabajo() {
+        return "el piloto esta manejando la nave";
+    }
 }

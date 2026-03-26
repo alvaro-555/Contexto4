@@ -2,7 +2,7 @@ CONCEPTOS DE PROGRAMACIÓN ORIENTADA A OBJETOS
 
 1. Método Constructor:
 Se utiliza para inicializar los atributos de una clase al crear un objeto.
-Ubicación: Clase Astronauta (16-24), Diagnostico (13-20), Ingeniero (9-14), Medidor (11-15), Mision (14-23), Piloto (7-11), Planeta (13-19), 
+Ubicación: Clase Astronauta (16-24), Diagnostico (13-21), Ingeniero (9-14), Medidor (13-20), Mision (14-23), Piloto (7-11), Planeta (13-19), 
 Registro (13-21), Pilotoentrenamiento (11-20) 
 
 Ejemplo: Astronauta(String nombre, int edad, double pesokg, ...)

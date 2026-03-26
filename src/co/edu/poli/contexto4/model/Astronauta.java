@@ -1,6 +1,6 @@
 package co.edu.poli.contexto4.model;
 
-public class Astronauta {
+public abstract class Astronauta { //clase abstracta.
 
     private String nombre;
     private int edad;
@@ -62,4 +62,6 @@ public class Astronauta {
                 ", id='" + id + '\'' +
                 '}';
     }
+    public abstract String realizartrabajo();
+
 }
