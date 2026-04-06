@@ -1,5 +1,10 @@
-package co.edu.poli.contexto4.servicios;
 
+package co.edu.poli.contexto4.servicios;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
 import co.edu.poli.contexto4.model.Astronauta;
 
 /**
@@ -15,7 +20,7 @@ import co.edu.poli.contexto4.model.Astronauta;
  * @author Alvaro Pachon
  * @since 03/04/2026
  */
-public class ImplementacionOperacionCRUD implements OperacionCRUD {
+public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarchivo {
 
     /**
      * Arreglo que almacena los astronautas.
@@ -140,4 +145,61 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
 
         return null;
     }
+    /**
+ * Serializa el arreglo de astronautas y lo guarda en un archivo.
+ *
+ * @param datos arreglo de astronautas a guardar
+ * @param path ruta donde se almacenará el archivo
+ * @param name nombre del archivo
+ * @return mensaje de resultado
+ */
+@Override
+public String serializar(Astronauta[] datos, String path, String name) {
+    try {
+        FileOutputStream fos = new FileOutputStream(path + name);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+        oos.writeObject(datos);
+
+        oos.close();
+        fos.close();
+
+        return "Archivo creado correctamente";
+    } catch (IOException ioe) {
+        return "Error al crear archivo: " + ioe.getMessage();
+    }
+}
+
+/**
+ * Deserializa un archivo y retorna el arreglo de astronautas almacenado.
+ *
+ * @param path ruta del archivo
+ * @param name nombre del archivo
+ * @return arreglo de astronautas o null si ocurre un error
+ */
+/**
+ * Deserializa un archivo y carga el arreglo de astronautas.
+ *
+ * @param path ruta del archivo
+ * @param name nombre del archivo
+ */
+@Override
+public void deserializar(String path, String name) {
+
+    try {
+        FileInputStream fis = new FileInputStream(path + name);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+
+        Astronauta[] datos = (Astronauta[]) ois.readObject();
+        arreglo = datos;
+
+        ois.close();
+        fis.close();
+
+    } catch (IOException ioe) {
+        System.err.println(ioe.getMessage());
+    } catch (ClassNotFoundException c) {
+        System.err.println(c.getMessage());
+    }
+}
 }

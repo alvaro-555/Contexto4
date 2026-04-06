@@ -1,5 +1,7 @@
 package co.edu.poli.contexto4.servicios;
 
+import java.io.Serializable;
+
 import co.edu.poli.contexto4.model.Piloto;
 
 /**
@@ -12,7 +14,7 @@ import co.edu.poli.contexto4.model.Piloto;
  * @author Alvaro Pachon
  * @since 03/04/2026
  */
-public class Pilotoentrenamiento extends Piloto {
+public class Pilotoentrenamiento extends Piloto implements Serializable {
 
     /**
      * Indica si el piloto es apto para volar.
@@ -31,7 +33,7 @@ public class Pilotoentrenamiento extends Piloto {
      * Es estático, pertenece a la clase.
      * Tipo de acceso: private static
      */
-    private static int salarioBase;
+    private static int salarioBase = 1000;
 
     /**
      * Constructor del piloto en entrenamiento.
@@ -40,18 +42,16 @@ public class Pilotoentrenamiento extends Piloto {
      * @param edad Edad
      * @param pesokg Peso
      * @param id Identificación
-     * @param fechanacimiento Fecha de nacimiento
-     * @param foto Foto
      * @param licencia Licencia
      * @param esAptoParaVolar Indica si puede volar
      * @param nivel Nivel del piloto
      */
     public Pilotoentrenamiento(String nombre,int edad,double pesokg,
-                               String id,String fechanacimiento,String foto,
+                               String id,
                                String licencia,
                                boolean esAptoParaVolar,String nivel){
 
-        super(nombre,edad,pesokg,id,fechanacimiento,foto,licencia);
+        super(nombre,edad,pesokg,id,licencia);
 
         this.esAptoParaVolar = esAptoParaVolar;
         this.nivel = nivel;

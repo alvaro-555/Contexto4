@@ -1,5 +1,7 @@
 package co.edu.poli.contexto4.model;
 
+import java.io.Serializable;
+
 /**
  * Clase abstracta que representa un astronauta dentro del sistema.
  * Esta clase sirve como base para otras clases como Ingeniero o Piloto,
@@ -11,7 +13,7 @@ package co.edu.poli.contexto4.model;
  * @author Alvaro Pachon
  * @since 03/04/2026
  */
-public abstract class Astronauta { //clase abstracta.
+public abstract class Astronauta implements Serializable{ //clase abstracta.
 
     /**
      * Nombre del astronauta.

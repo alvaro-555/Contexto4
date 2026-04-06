@@ -1,6 +1,6 @@
 package co.edu.poli.contexto4.vista;
 import co.edu.poli.contexto4.model.*;
-import co.edu.poli.contexto4.servicios.Pilotoentrenamiento;
+
 import java.util.Scanner;
 import co.edu.poli.contexto4.servicios.*;
 
@@ -12,18 +12,17 @@ public class Principal {
 
         ImplementacionOperacionCRUD crud = new ImplementacionOperacionCRUD();
 
-       
         Astronauta[] astronautas = new Astronauta[5];
 
-        astronautas[1] = new Ingeniero("carlos", 32, 78, "I123", "20/02/1994", "foto", "alto");
-        astronautas[1].setPesokg(75);
 
-        astronautas[2] = new Piloto("Pedro",35,82,"2","1995","foto2","A1");
+        astronautas[0] = new Ingeniero("carlos", 32, 78.0, "I123", "alto");
 
-        astronautas[3] = new Pilotoentrenamiento(
-                "Luis",28,78,"3","1998","foto3",
-                "B2",true,"Intermedio"
-        );
+        astronautas[0].setPesokg(75);
+
+        astronautas[1] = new Piloto("Pedro",35,82,"2","A1");
+
+        
+        astronautas[2] = new Pilotoentrenamiento("Luis",28,78,"3","B2",true,"Intermedio");
 
         double altura = 1.75;
 
@@ -43,11 +42,13 @@ public class Principal {
             System.out.println("3. Ver todos los astronautas");
             System.out.println("4. Modificar datos");
             System.out.println("5. Eliminar astronauta");
-            System.out.println("6. Salir");
+            System.out.println("6. Serializar datos");
+            System.out.println("7. Deserializar datos");
+            System.out.println("8. Salir");
 
             opcion = Sc1.nextInt();
 
-            if (opcion > 6 || opcion <= 0){
+            if (opcion > 8 || opcion <= 0){
                 System.out.println("Opción inválida");
             } else {
 
@@ -102,12 +103,34 @@ public class Principal {
                         break;
 
                     case 6:
+                        System.out.print("Ruta: ");
+                        String path = Sc1.next();
+
+                        System.out.print("Nombre archivo: ");
+                        String name = Sc1.next();
+
+                        System.out.println(crud.serializar(crud.leerTodos(), path, name));
+                        break;
+
+                    case 7:
+                        System.out.print("Ruta: ");
+                        String path2 = Sc1.next();
+
+                        System.out.print("Nombre archivo: ");
+                        String name2 = Sc1.next();
+
+                        crud.deserializar(path2, name2);
+                        System.out.println("Datos cargados correctamente");
+                        break;
+
+                    case 8:
                         System.out.println("Saliendo...");
                         break;
+
                 }
             }
 
-        } while (opcion != 6);
+        } while (opcion != 8);
     }
 
     public static void mostrarIMC(Astronauta a, double altura){
@@ -137,23 +160,18 @@ public class Principal {
         System.out.print("ID: ");
         String id = sc.next();
 
-        System.out.print("Fecha de nacimiento: ");
-        String fechaNacimiento = sc.next();
-
-        System.out.print("Foto: ");
-        String foto = sc.next();
-
+     
         if(tipo == 1){
             System.out.print("Especialidad: ");
             String especialidad = sc.next();
 
-            return new Ingeniero(nombre, edad, peso, id, fechaNacimiento, foto, especialidad);
+            return new Ingeniero(nombre, edad, peso, id, especialidad);
 
         } else {
             System.out.print("Licencia: ");
             String licencia = sc.next();
 
-            return new Piloto(nombre, edad, peso, id, fechaNacimiento, foto, licencia);
+            return new Piloto(nombre, edad, peso, id, licencia);
         }
     }
 }

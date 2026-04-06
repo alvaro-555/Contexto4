@@ -1,5 +1,7 @@
 package co.edu.poli.contexto4.model;
 
+import java.io.Serializable;
+
 /**
  * Clase que representa un Piloto, hereda de Astronauta.
  * Se encarga de modelar astronautas que operan o conducen naves.
@@ -7,7 +9,7 @@ package co.edu.poli.contexto4.model;
  * @author Alvaro Pachon
  * @since 03/04/2026
  */
-public class Piloto extends Astronauta {
+public class Piloto extends Astronauta implements Serializable {
 
     /**
      * Licencia del piloto.
@@ -26,9 +28,9 @@ public class Piloto extends Astronauta {
      * @param foto Foto
      * @param licencia Licencia del piloto
      */
-    public Piloto(String nombre,int edad,double pesokg,String id, String fechanacimiento,String foto,String licencia){
+    public Piloto(String nombre,int edad,double pesokg,String id,String licencia){
 
-        super(nombre,edad,pesokg,id,fechanacimiento,foto);
+        super(nombre,edad,pesokg,id,"12 junio","piloto.png");
         this.licencia = licencia;
     }
 

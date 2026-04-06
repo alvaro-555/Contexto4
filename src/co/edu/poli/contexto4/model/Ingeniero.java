@@ -1,5 +1,7 @@
 package co.edu.poli.contexto4.model;
 
+import java.io.Serializable;
+
 /**
  * Clase que representa un Ingeniero, hereda de Astronauta.
  * Es una clase final, por lo que no puede ser heredada por otras clases.
@@ -9,7 +11,7 @@ package co.edu.poli.contexto4.model;
  * @author Alvaro Pachon
  * @since 03/04/2026
  */
-public final class Ingeniero extends Astronauta { // FINAL no se puede heredar
+public final class Ingeniero extends Astronauta implements Serializable { // FINAL no se puede heredar
 
     /**
      * Nivel técnico del ingeniero.
@@ -29,9 +31,9 @@ public final class Ingeniero extends Astronauta { // FINAL no se puede heredar
      * @param niveltecnico Nivel técnico del ingeniero
      */
     public Ingeniero(String nombre,int edad,double pesokg,String id,
-                     String fechanacimiento,String foto,String niveltecnico){
+                     String niveltecnico){
 
-        super(nombre,edad,pesokg,id,fechanacimiento,foto);
+        super(nombre,edad,pesokg,id,"13 marzo","astronauta.png");
         this.niveltecnico = niveltecnico;
     }
 
