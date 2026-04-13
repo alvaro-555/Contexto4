@@ -125,3 +125,17 @@ Permite usar una referencia de la superclase para objetos de subclases.
 Ubicación:
 - Clase Principal, arreglo Astronauta[]
 - Métodos mostrarIMC() y crearAstronauta()
+
+1. git init 
+2. git status
+3. git add .
+4. git commit -m "mensaje"
+5. git config --global user.email alvarosantiagopachon@gmail.com
+6. git config --global user.name alvaro-555
+7. git commit -m "mensaje"
+8. git branch -M main 
+9. git remote add origin https://github.com/alvaro-555/Contexto4.git
+10. git push -u origin main
+11. iniciar con el bowser.
+
+
