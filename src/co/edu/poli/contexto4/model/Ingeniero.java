@@ -11,7 +11,9 @@ import java.io.Serializable;
  * @author Alvaro Pachon
  * @since 03/04/2026
  */
-public final class Ingeniero extends Astronauta implements Serializable { // FINAL no se puede heredar
+public final class Ingeniero extends Astronauta implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * Nivel técnico del ingeniero.
@@ -22,40 +24,38 @@ public final class Ingeniero extends Astronauta implements Serializable { // FIN
     /**
      * Constructor que inicializa todos los atributos del ingeniero.
      *
-     * @param nombre Nombre
-     * @param edad Edad
-     * @param pesokg Peso
-     * @param id Identificación
-     * @param fechanacimiento Fecha de nacimiento
-     * @param foto Foto
+     * @param nombre       Nombre
+     * @param edad         Edad
+     * @param pesokg       Peso
+     * @param id           Identificación
      * @param niveltecnico Nivel técnico del ingeniero
      */
-    public Ingeniero(String nombre,int edad,double pesokg,String id,
-                     String niveltecnico){
+    public Ingeniero(String nombre, int edad, double pesokg, String id,
+                     String niveltecnico) {
 
-        super(nombre,edad,pesokg,id,"13 marzo","astronauta.png");
+        super(nombre, edad, pesokg, id, "13 marzo", "astronauta.png");
         this.niveltecnico = niveltecnico;
     }
 
     /**
      * Sobrescribe el cálculo del IMC aplicando una fórmula modificada.
      *
-     * @param peso Peso
+     * @param peso   Peso
      * @param altura Altura
      * @return IMC modificado
      */
     @Override
-    protected double calcularimc(double peso,double altura){
-        return peso/(altura*altura)*1000;
+    protected double calcularimc(double peso, double altura) {
+        return peso / (altura * altura) * 1000;
     }
 
     /** @return nivel técnico */
-    public String getNiveltecnico(){return niveltecnico;}
+    public String getNiveltecnico() { return niveltecnico; }
 
     /**
      * @param niveltecnico Nuevo nivel técnico
      */
-    public void setNiveltecnico(String niveltecnico){
+    public void setNiveltecnico(String niveltecnico) {
         this.niveltecnico = niveltecnico;
     }
 
@@ -65,7 +65,7 @@ public final class Ingeniero extends Astronauta implements Serializable { // FIN
      * @return información del ingeniero
      */
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() +
                 " Ingeniero{" +
                 "niveltecnico='" + niveltecnico + '\'' +

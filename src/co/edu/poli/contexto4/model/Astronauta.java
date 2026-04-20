@@ -16,6 +16,11 @@ import java.io.Serializable;
 public abstract class Astronauta implements Serializable{ //clase abstracta.
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Nombre del astronauta.
      * Tipo de acceso: private
      */

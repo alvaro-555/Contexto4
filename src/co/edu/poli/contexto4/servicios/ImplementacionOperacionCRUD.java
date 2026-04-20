@@ -1,10 +1,10 @@
-
 package co.edu.poli.contexto4.servicios;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
+import java.io.File;
 import co.edu.poli.contexto4.model.Astronauta;
 
 /**
@@ -31,7 +31,7 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
     /**
      * Constructor que inicializa el arreglo con tamaño inicial 2.
      */
-    public ImplementacionOperacionCRUD(){
+    public ImplementacionOperacionCRUD() {
         arreglo = new Astronauta[2];
     }
 
@@ -41,14 +41,15 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
      *
      * @param a astronauta a crear
      * @return mensaje de resultado de la operación
+     * @throws IllegalArgumentException si el astronauta es nulo o el ID ya existe
      */
     @Override
-    public String crear(Astronauta a) {
+    public String crear(Astronauta a) throws IllegalArgumentException {
 
-        if (a == null) return "Error: objeto nulo";
+        if (a == null) throw new IllegalArgumentException("Error: objeto nulo");
 
         if (leerPorId(a.getId()) != null) {
-            return "Error: ya existe un ID";
+            throw new IllegalArgumentException("Error: ya existe un astronauta con ese ID");
         }
 
         for (int i = 0; i < arreglo.length; i++) {
@@ -65,7 +66,6 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
         }
 
         arreglo = nuevo;
-
         arreglo[arreglo.length / 2] = a;
 
         return "Astronauta creado (arreglo expandido)";
@@ -76,11 +76,12 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
      *
      * @param id identificador del astronauta
      * @return astronauta encontrado o null si no existe
+     * @throws IllegalArgumentException si el ID es nulo
      */
     @Override
-    public Astronauta leerPorId(String id) {
+    public Astronauta leerPorId(String id) throws IllegalArgumentException {
 
-        if (id == null) return null;
+        if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
 
         for (Astronauta a : arreglo) {
             if (a != null && a.getId().equals(id)) {
@@ -103,15 +104,16 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
     /**
      * Actualiza un astronauta existente por su ID.
      *
-     * @param id identificador del astronauta a actualizar
+     * @param id    identificador del astronauta a actualizar
      * @param nuevo nuevo objeto astronauta
      * @return mensaje de resultado
+     * @throws IllegalArgumentException si los datos son inválidos
      */
     @Override
-    public String actualizar(String id, Astronauta nuevo) {
+    public String actualizar(String id, Astronauta nuevo) throws IllegalArgumentException {
 
         if (id == null || nuevo == null) {
-            return "Error: datos inválidos";
+            throw new IllegalArgumentException("Error: datos inválidos");
         }
 
         for (int i = 0; i < arreglo.length; i++) {
@@ -129,11 +131,12 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
      *
      * @param id identificador del astronauta
      * @return astronauta eliminado o null si no se encuentra
+     * @throws IllegalArgumentException si el ID es nulo
      */
     @Override
-    public Astronauta eliminar(String id) {
+    public Astronauta eliminar(String id) throws IllegalArgumentException {
 
-        if (id == null) return null;
+        if (id == null) throw new IllegalArgumentException("El ID no puede ser nulo");
 
         for (int i = 0; i < arreglo.length; i++) {
             if (arreglo[i] != null && arreglo[i].getId().equals(id)) {
@@ -145,17 +148,25 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD, Operacionarch
 
         return null;
     }
+
     /**
- * Serializa el arreglo de astronautas y lo guarda en un archivo.
- *
- * @param datos arreglo de astronautas a guardar
- * @param path ruta donde se almacenará el archivo
- * @param name nombre del archivo
- * @return mensaje de resultado
- */
-@Override
-public String serializar(Astronauta[] datos, String path, String name) {
-    try {
+     * Serializa el arreglo de astronautas y lo guarda en un archivo.
+     * La carpeta de destino se crea automáticamente si no existe.
+     *
+     * @param datos arreglo de astronautas a guardar
+     * @param path  ruta donde se almacenará el archivo
+     * @param name  nombre del archivo
+     * @return mensaje de resultado
+     * @throws IOException si ocurre un error al guardar el archivo
+     */
+    @Override
+    public String serializar(Astronauta[] datos, String path, String name) throws IOException {
+
+        File carpeta = new File(path);
+        if (!carpeta.exists()) {
+            carpeta.mkdirs();
+        }
+
         FileOutputStream fos = new FileOutputStream(path + name);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 
@@ -165,28 +176,19 @@ public String serializar(Astronauta[] datos, String path, String name) {
         fos.close();
 
         return "Archivo creado correctamente";
-    } catch (IOException ioe) {
-        return "Error al crear archivo: " + ioe.getMessage();
     }
-}
 
-/**
- * Deserializa un archivo y retorna el arreglo de astronautas almacenado.
- *
- * @param path ruta del archivo
- * @param name nombre del archivo
- * @return arreglo de astronautas o null si ocurre un error
- */
-/**
- * Deserializa un archivo y carga el arreglo de astronautas.
- *
- * @param path ruta del archivo
- * @param name nombre del archivo
- */
-@Override
-public void deserializar(String path, String name) {
+    /**
+     * Deserializa un archivo y carga el arreglo de astronautas.
+     *
+     * @param path ruta del archivo
+     * @param name nombre del archivo
+     * @throws IOException            si ocurre un error al leer el archivo
+     * @throws ClassNotFoundException si la clase no es encontrada
+     */
+    @Override
+    public void deserializar(String path, String name) throws IOException, ClassNotFoundException {
 
-    try {
         FileInputStream fis = new FileInputStream(path + name);
         ObjectInputStream ois = new ObjectInputStream(fis);
 
@@ -195,11 +197,5 @@ public void deserializar(String path, String name) {
 
         ois.close();
         fis.close();
-
-    } catch (IOException ioe) {
-        System.err.println(ioe.getMessage());
-    } catch (ClassNotFoundException c) {
-        System.err.println(c.getMessage());
     }
-}
 }

@@ -11,6 +11,8 @@ import java.io.Serializable;
  */
 public class Piloto extends Astronauta implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /**
      * Licencia del piloto.
      * Tipo de acceso: private
@@ -20,35 +22,33 @@ public class Piloto extends Astronauta implements Serializable {
     /**
      * Constructor del piloto.
      *
-     * @param nombre Nombre
-     * @param edad Edad
-     * @param pesokg Peso
-     * @param id Identificación
-     * @param fechanacimiento Fecha de nacimiento
-     * @param foto Foto
+     * @param nombre   Nombre
+     * @param edad     Edad
+     * @param pesokg   Peso
+     * @param id       Identificación
      * @param licencia Licencia del piloto
      */
-    public Piloto(String nombre,int edad,double pesokg,String id,String licencia){
+    public Piloto(String nombre, int edad, double pesokg, String id, String licencia) {
 
-        super(nombre,edad,pesokg,id,"12 junio","piloto.png");
+        super(nombre, edad, pesokg, id, "12 junio", "piloto.png");
         this.licencia = licencia;
     }
 
     /** @return licencia del piloto */
-    public String getLicencia(){return licencia;}
+    public String getLicencia() { return licencia; }
 
     /**
      * @param licencia Nueva licencia
      */
-    public void setLicencia(String licencia){this.licencia = licencia;}
+    public void setLicencia(String licencia) { this.licencia = licencia; }
 
     /**
      * Muestra el tipo de piloto.
      *
      * @param type Tipo de piloto
      */
-    public void tipopiloto(String type){
-        System.out.println("Tipo piloto: "+type);
+    public void tipopiloto(String type) {
+        System.out.println("Tipo piloto: " + type);
     }
 
     /**
@@ -57,8 +57,8 @@ public class Piloto extends Astronauta implements Serializable {
      * @return información del piloto
      */
     @Override
-    public String toString(){
-        return super.toString()+
+    public String toString() {
+        return super.toString() +
                 " Piloto{" +
                 "licencia='" + licencia + '\'' +
                 '}';
